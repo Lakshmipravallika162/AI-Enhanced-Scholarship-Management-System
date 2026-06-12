@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScholarAI – Student Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">🎓 ScholarAI</div>
+    <div class="nav-links">
+      <a href="student-dashboard.html" class="active">Dashboard</a>
+      <a href="apply.html">Apply</a>
+      <a href="my-applications.html">My Applications</a>
+    </div>
+    <div class="nav-user">
+      <span id="userName">Student</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>Welcome back, <span id="welcomeName">Student</span> 👋</h2>
+      <p>Track your scholarship applications and AI predictions</p>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-value" id="totalApps">0</div>
+        <div class="stat-label">Total Applications</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="approvedApps">0</div>
+        <div class="stat-label">Approved</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-value" id="pendingApps">0</div>
+        <div class="stat-label">Pending</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-icon">❌</div>
+        <div class="stat-value" id="rejectedApps">0</div>
+        <div class="stat-label">Rejected</div>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="card">
+      <h3>Quick Actions</h3>
+      <div class="action-grid">
+        <a href="apply.html" class="action-btn">
+          <span>📝</span>
+          <span>Apply for Scholarship</span>
+        </a>
+        <a href="my-applications.html" class="action-btn">
+          <span>🔍</span>
+          <span>View Applications</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- RECENT APPLICATIONS -->
+    <div class="card">
+      <h3>Recent Applications</h3>
+      <div id="recentApps">
+        <p class="empty-state">No applications yet. <a href="apply.html">Apply now →</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="utils.js"></script>
+  <script src="student-dashboard.js"></script>
+</body>
+</html>

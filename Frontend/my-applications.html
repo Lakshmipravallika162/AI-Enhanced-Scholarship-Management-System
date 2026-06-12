@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScholarAI – My Applications</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">🎓 ScholarAI</div>
+    <div class="nav-links">
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="apply.html">Apply</a>
+      <a href="my-applications.html" class="active">My Applications</a>
+    </div>
+    <div class="nav-user">
+      <span id="userName">Student</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>📋 My Applications</h2>
+      <p>Track all your scholarship applications and AI evaluation results</p>
+    </div>
+
+    <div id="applicationsList">
+      <p class="empty-state loading">Loading applications...</p>
+    </div>
+  </main>
+
+  <!-- APPLICATION DETAIL MODAL -->
+  <div id="appModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>Application Details</h3>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="my-applications.js"></script>
+</body>
+</html>

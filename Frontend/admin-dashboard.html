@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScholarAI – Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar admin-nav">
+    <div class="nav-brand">🎓 ScholarAI <span class="admin-badge">Admin</span></div>
+    <div class="nav-links">
+      <a href="admin-dashboard.html" class="active">Dashboard</a>
+      <a href="admin-applications.html">Applications</a>
+    </div>
+    <div class="nav-user">
+      <span id="userName">Admin</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>📊 Admin Dashboard</h2>
+      <p>Overview of all scholarship applications and ML analytics</p>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-value" id="totalStudents">–</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-value" id="totalApps">–</div>
+        <div class="stat-label">Total Applications</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-value" id="pendingApps">–</div>
+        <div class="stat-label">Pending Review</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="approvedApps">–</div>
+        <div class="stat-label">Approved</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-icon">❌</div>
+        <div class="stat-value" id="rejectedApps">–</div>
+        <div class="stat-label">Rejected</div>
+      </div>
+      <div class="stat-card info">
+        <div class="stat-icon">🤖</div>
+        <div class="stat-value" id="avgProb">–</div>
+        <div class="stat-label">Avg ML Probability</div>
+      </div>
+    </div>
+
+    <!-- ML INSIGHTS -->
+    <div class="two-col-grid">
+      <div class="card">
+        <h3>🤖 ML Eligibility Split</h3>
+        <div class="donut-wrap" id="donutChart"></div>
+      </div>
+      <div class="card">
+        <h3>📈 Income Level Distribution</h3>
+        <div id="incomeChart" class="bar-chart-wrap"></div>
+      </div>
+    </div>
+
+    <!-- PENDING APPLICATIONS TABLE -->
+    <div class="card">
+      <div class="card-header-row">
+        <h3>⏳ Pending Applications</h3>
+        <a href="admin-applications.html" class="btn btn-sm btn-primary">View All</a>
+      </div>
+      <div id="pendingTable">
+        <p class="empty-state loading">Loading...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="utils.js"></script>
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>

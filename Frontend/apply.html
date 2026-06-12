@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScholarAI – Apply</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">🎓 ScholarAI</div>
+    <div class="nav-links">
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="apply.html" class="active">Apply</a>
+      <a href="my-applications.html">My Applications</a>
+    </div>
+    <div class="nav-user">
+      <span id="userName">Student</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>📝 Scholarship Application</h2>
+      <p>Fill in your academic and financial details. Our AI will evaluate your eligibility.</p>
+    </div>
+
+    <div class="card form-card">
+      <form id="applyForm">
+
+        <div class="form-section">
+          <h4>🎓 Academic Details</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>GPA / CGPA <span class="hint">(out of 4.0)</span></label>
+              <input type="number" id="gpa" min="0" max="4" step="0.01"
+                     placeholder="e.g. 3.5" required/>
+            </div>
+            <div class="form-group">
+              <label>Attendance Percentage</label>
+              <input type="number" id="attendance" min="0" max="100"
+                     placeholder="e.g. 85" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Extracurricular Score <span class="hint">(0–10)</span></label>
+            <input type="range" id="extraScore" min="0" max="10" value="5"
+                   oninput="document.getElementById('extraVal').textContent = this.value"/>
+            <span class="range-val" id="extraVal">5</span>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h4>💰 Financial & Background</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Family Income Level</label>
+              <select id="incomeLevel" required>
+                <option value="">Select...</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Category Eligible?</label>
+              <select id="categoryEligible" required>
+                <option value="0">No</option>
+                <option value="1">Yes (SC/ST/OBC/EWS)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Previous Scholarship Received?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="prevSchol" value="0" checked/> No</label>
+              <label><input type="radio" name="prevSchol" value="1"/> Yes</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">
+          Submit Application & Get AI Prediction
+        </button>
+      </form>
+    </div>
+
+    <!-- PREDICTION RESULT PANEL -->
+    <div id="resultPanel" class="card result-panel hidden">
+      <h3>🤖 AI Prediction Result</h3>
+      <div class="result-badge" id="resultBadge"></div>
+      <div class="prob-bar-wrap">
+        <label>Approval Probability</label>
+        <div class="prob-bar">
+          <div class="prob-fill" id="probFill"></div>
+        </div>
+        <span id="probText">0%</span>
+      </div>
+      <div id="explanationBox" class="explanation-box hidden">
+        <h4>📄 AI Explanation</h4>
+        <p id="explanationText"></p>
+      </div>
+      <button class="btn btn-secondary" onclick="getExplanation()">
+        Generate AI Explanation
+      </button>
+    </div>
+  </main>
+
+  <script src="utils.js"></script>
+  <script src="apply.js"></script>
+</body>
+</html>

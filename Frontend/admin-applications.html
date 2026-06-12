@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScholarAI – All Applications</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar admin-nav">
+    <div class="nav-brand">🎓 ScholarAI <span class="admin-badge">Admin</span></div>
+    <div class="nav-links">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-applications.html" class="active">Applications</a>
+    </div>
+    <div class="nav-user">
+      <span id="userName">Admin</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>📋 All Applications</h2>
+      <p>Review, predict, generate reports, and approve or reject applications</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-bar">
+      <select id="statusFilter" onchange="filterApps()">
+        <option value="all">All Status</option>
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search by name or email..."
+             oninput="filterApps()"/>
+    </div>
+
+    <div id="appTable">
+      <p class="empty-state loading">Loading applications...</p>
+    </div>
+  </main>
+
+  <!-- DETAIL MODAL -->
+  <div id="appModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-box large">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="admin-applications.js"></script>
+</body>
+</html>
