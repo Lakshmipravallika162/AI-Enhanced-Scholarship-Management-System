@@ -1,0 +1,13 @@
+{
+  "name": "scholarshipms",
+  "version": "1.0.0",
+  "description": "> A full-stack web application with Machine Learning + Generative AI integration   > Built for: Gradious | Algorithm: Logistic Regression | GenAI: Claude API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
